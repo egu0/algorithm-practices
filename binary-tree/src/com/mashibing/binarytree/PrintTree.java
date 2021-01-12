@@ -52,7 +52,7 @@ public class PrintTree {
 	 * @param i 从上往下，第几层
 	 * @param string 标识符，H,<,>
 	 */
-	private static void printBinaryTree(Node h, int i, String string) {
+	static void printBinaryTree(Node h, int i, String string) {
 		if (h==null) {
 			return;
 		}
