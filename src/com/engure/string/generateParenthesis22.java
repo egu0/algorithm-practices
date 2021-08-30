@@ -1,9 +1,7 @@
 package com.engure.string;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
 
 public class generateParenthesis22 {
     public static void main(String[] args) {
@@ -12,7 +10,7 @@ public class generateParenthesis22 {
 }
 
 /**
- * 栈的思想
+ * 栈的思想，使用递归
  */
 
 class Solution22 {
