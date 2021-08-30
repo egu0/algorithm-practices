@@ -1,4 +1,4 @@
-package com.mashibing.binarytree;
+package com.engure.binarytree;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -28,45 +28,45 @@ public class TraverseTree {
 		n2.left=n5;
 		n2.right=n6;
 		n6.left=n7;
-		
+
 //		getMaxWidth(h);
 		getMaxWidth2(h);
-		
-		
+
+
 		//printRecursionSequence(h);
-		
+
 		/*
 		 * System.out.print("pre order:"); preOrder(h); System.out.println();
-		 * 
+		 *
 		 * System.out.print("in order:"); inOrder(h); System.out.println();
-		 * 
+		 *
 		 * System.out.print("post order: "); postOrder(h); System.out.println();
-		 * 
+		 *
 		 * System.out.print("level order:"); levelOrder(h); System.out.println();
 		 */
-		
+
 		/*System.out.print("pre non-recurion:");
 		preNonRecurion(h);
 		System.out.println();
-		
+
 		System.out.print("in non-recurion:");
 		inNonRecurion(h);
 		System.out.println();
-		
+
 		System.out.print("post non-recurion:");
 		postNonRecurion(h);
 		System.out.println();*/
-		
+
 	}
-	
+
 	// 后续非递归 双栈法
 	private static void postNonRecurion(Node h) {
 		if (h != null) {
 			// 头右左 遍历序列的逆序结果
-			
+
 			//1.将整个右边界从上到下节点的值入stack2，节点入stack
 			//2.弹栈stack，对弹出节点的左子树重复 1.
-			
+
 			//stack2：100 150 55555 180 120 0 50 -22222，倒序为后序遍历
 			Stack<Node> stack = new Stack<Node>();
 			Stack<Integer> stack2 = new Stack<>();
@@ -79,24 +79,24 @@ public class TraverseTree {
 					Node n = stack.pop();
 					h = n.left;
 				}
-				
+
 			}
 			while (!stack2.empty()) {
 				System.out.print(stack2.pop() + " ");
 			}
 		}
-		
+
 		// 头 右 左 遍历 （左老师）
 		//1.弹打印
 		//2.如有左则压入左节点
 		//3.如有右则压入右节点
 	}
-	
+
 	// 单栈后继遍历（巧妙地利用指针、卡逻辑）
 	private static void pos2(Node h) {
 		// 双指针
 		// 先处理左树、再处理右树、最后处理头节点
-		
+
 		System.out.println("pos-order: ");
 		if (h != null) {
 			Stack<Node> stack = new Stack<Node>();
@@ -104,7 +104,7 @@ public class TraverseTree {
 			Node c = null;
 			while (!stack.empty()) {
 				c = stack.peek();// 栈顶
-				
+
 				// c.left不为空、h不是c子节点
 				if (c.left != null && h != c.left && h != c.right) {
 					stack.push(c.left);
@@ -120,10 +120,10 @@ public class TraverseTree {
 		}
 		System.out.println();
 	}
-	
+
 	private static void pos3(Node h) {
 		// 不使用 双指针是否可实现？
-		
+
 		if (h != null) {
 			Stack<Node> stack = new Stack<Node>();
 			stack.push(h);
@@ -139,24 +139,24 @@ public class TraverseTree {
 						Node n = stack.pop();
 						System.out.println(n.val + " ");
 						Node m = stack.peek();
-						
+
 						// 此时打印节点并弹栈，如何进行标记 才能不进入死循环？
-						
+
 						if (n == m.left) {
 							h = m.right;
 						} else if (n == m.right) {
 							h = m;
 						}
 					} else if (stack.size() == 1) {
-						
+
 					}
 				}
 			}
-			
+
 		}
-		
+
 	}
-	
+
 	// 中序非递归
 	private static void inNonRecurion(Node h) {
 		// 左头右
@@ -175,10 +175,10 @@ public class TraverseTree {
 				}
 			}
 		}
-		
-		
+
+
 	}
-	
+
 	// 前序非递归
 	private static void preNonRecurion(Node h) {
 		// 头左右
@@ -195,18 +195,18 @@ public class TraverseTree {
 					Node n = stack.pop();
 					h = n.right;
 				}
-				
+
 			}
 		}
-		
+
 		// 方法二（左老师）
 		//1.弹打印
 		//2.如有右则压入右节点
 		//3.如有左则压入左节点
 	}
-	
-	
-	
+
+
+
 	// 层级遍历
 	private static void levelOrder(Node h) {
 		LinkedList<Node> q = new LinkedList<Node>();
@@ -224,7 +224,7 @@ public class TraverseTree {
 			}
 		}
 	}
-	
+
 	// 求最大树宽（层序遍历、切入点：当前层的末尾节点）
 	private static int getMaxWidth(Node h) {
 		if (h != null) {
@@ -234,7 +234,7 @@ public class TraverseTree {
 			Node nextEnd = null;	// 下一行末尾节点
 			int curLevelNodeNum = 0;// 当前行节点数
 			int max = 0;			// 最大节点数
-			
+
 			while (!queue.isEmpty()) {
 				Node n = queue.poll();
 				if (n.left != null) {
@@ -256,7 +256,7 @@ public class TraverseTree {
 		}
 		return 0;
 	}
-	
+
 	private static void getMaxWidth2(Node h) {
 		if (h != null) {
 			HashMap<Node, Integer> map = new HashMap<Node, Integer>();
@@ -291,14 +291,14 @@ public class TraverseTree {
 		}
 	}
 
-	
-	
+
+
 	// 递归方式
 	private static void postOrder(Node h) {
 		if (h == null) {
 			return;
 		}
-			
+
 		postOrder(h.left);
 		postOrder(h.right);
 		System.out.print(h.val + " ");
@@ -307,7 +307,7 @@ public class TraverseTree {
 	private static void inOrder(Node h) {
 		if (h == null) {
 			return;
-		}	
+		}
 		inOrder(h.left);
 		System.out.print(h.val + " ");
 		inOrder(h.right);
@@ -317,15 +317,15 @@ public class TraverseTree {
 		if (h == null) {
 			return;
 		}
-			
+
 		System.out.print(h.val + " ");
 		preOrder(h.left);
 		preOrder(h.right);
 	}
 
-	
-	
-	
+
+
+
 	/**
 	 * 打印 【递归序】
 	 * @param h 头节点
@@ -343,7 +343,7 @@ public class TraverseTree {
 		printRecursionSequence(h.right);
 		System.out.println(h.val + " [3]");
 	}
-	
-	
+
+
 
 }

@@ -1,11 +1,11 @@
-package com.mashibing.binarytree;
+package com.engure.binarytree;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
 public class SeizalAndDeSeizal {
-	
+
 	public static void main(String[] args) {
 
 		Node h = new Node(100);
@@ -23,7 +23,7 @@ public class SeizalAndDeSeizal {
 		n2.left=n5;
 		n2.right=n6;
 		n6.left=n7;
-		
+
 //		printQueue(preSerial(h));
 //		preSerial2(h);
 //		Node preDeSerial = preDeSerial(preSerial(h));
@@ -33,9 +33,9 @@ public class SeizalAndDeSeizal {
 		System.out.println(q);
 		Node h2 = levelDeSerial(q);
 		PrintTree.printBinaryTree(h2, 0, "H");
-		
+
 	}
-	
+
 	/**
 	 * 打印队列preSerial
 	 * @param preSerial
@@ -52,7 +52,7 @@ public class SeizalAndDeSeizal {
 		}
 		System.out.println();
 	}
-	
+
 	// 递归序列化
 	private static Queue<Node> preSerial(Node h) {
 		Queue<Node> ans = new LinkedList<Node>();
@@ -67,8 +67,8 @@ public class SeizalAndDeSeizal {
 			pre(h.right, ans);
 		}
 	}
-	
-	// 非递归实现序列化 
+
+	// 非递归实现序列化
 	private static void preSerial2(Node h) {
 		if (h != null) {
 			Stack<Node> stack = new Stack<Node>();
@@ -88,7 +88,7 @@ public class SeizalAndDeSeizal {
 			printQueue(queue);
 		}
 	}
-	
+
 	// 通过前序遍历序列构造树
 	private static Node preDeSerial(Queue<Node> queue) {
 		Node n = queue.poll();
@@ -98,8 +98,8 @@ public class SeizalAndDeSeizal {
 		}
 		return n;
 	}
-	
-	
+
+
 	// 后序 递归 序列化 和 反序列化
 	private static Queue<Node> postSerial(Node h) {
 		Queue<Node> ans = new LinkedList<Node>();
@@ -116,15 +116,15 @@ public class SeizalAndDeSeizal {
 			ans.add(h);
 		}
 	}
-	
+
 	private static Node postDeSerial(Queue<Node> queue) {
 //		后续的反序列化？ 队头为null，不能反序列化。
 		return null;
 	}
-	
-	
+
+
 	// ========================
-	
+
 	// 层序遍历序列化 非递归方法
 	// 层序遍历的改进：考虑空位
 	private static Queue<Node> levelSerial(Node h) {
@@ -132,7 +132,7 @@ public class SeizalAndDeSeizal {
 		if (h != null) {
 			Queue<Node> queue = new LinkedList<Node>();
 			ans = new LinkedList<Node>();
-			
+
 			queue.add(h);
 			ans.add(h);
 			while (!queue.isEmpty()) {
@@ -149,7 +149,7 @@ public class SeizalAndDeSeizal {
 		}
 		return ans;
 	}
-	
+
 	// 层序遍历反序列化 非递归方式
 	private static Node levelDeSerial(Queue<Node> queue) {
 		if (queue == null || queue.isEmpty()) {
@@ -186,7 +186,7 @@ public class SeizalAndDeSeizal {
 		}
 		return node;
 	}
-	
+
 }
 
 

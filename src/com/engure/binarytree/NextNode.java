@@ -1,7 +1,7 @@
-package com.mashibing.binarytree;
+package com.engure.binarytree;
 /**
  * 获取二叉树某节点的后继节点
- * 
+ *
  * @author 菠萝蜜
  *
  */
@@ -13,7 +13,7 @@ public class NextNode {
 			H100H
 	     >0>	     		<150<
  >-222222>  <50<		>120>		<55555555<
- 					    	  >180>		
+ 					    	  >180>
  */
 		Node h = new Node(100);
 		Node n1 = new Node(0);
@@ -39,7 +39,7 @@ public class NextNode {
 		n6.left=n7;
 		// -22222222 -> 0 -> 50 -> 100 -> 120 -> 150 -> 180 -> 55555555
 		//    n3        n1   n4     h     n5     n2     n7        n6
-		
+
 		printNext(h);//100->120
 		printNext(n6);//末节点
 		printNext(n2);//150->180
@@ -50,12 +50,12 @@ public class NextNode {
 		printPrevious(n2);//150->120
 		printPrevious(n7);//180->150
 		printPrevious(n3);//-2222222->x
-		
+
 	}
-	
+
 	/**
 	 * 求当前节点 h的前驱节点,讨论左子树
-	 * @param h
+	 * @param n
 	 */
 	private static void printPrevious(Node n) {
 		//左子树不为空，则左子树上最右节点为目标节点
@@ -77,16 +77,16 @@ public class NextNode {
 			}else {
 				System.out.println("previous node's val is " + t.parent.val);
 			}
-			
+
 		}
 	}
-	
+
 	/**
 	 * 求当前节点 n的后继节点，讨论右子树
 	 * @param n
 	 */
 	private static void printNext(/* Node h, */ Node n) {
-		
+
 		//如果右子树不为空,右子树上的最左节点为后继节点
 		if (n.right != null) {
 			Node t = n.right;
@@ -94,9 +94,9 @@ public class NextNode {
 				t = t.left;
 			}
 			System.out.println("next node's val is " + t.val);
-		} 
+		}
 		//如果右子树为空
-		else 
+		else
 		{
 			Node t = n;
 			while (t.parent!=null && t!=t.parent.left) {	//当前节点为父节点右节点
@@ -107,10 +107,10 @@ public class NextNode {
 			}else {//一般节点
 				System.out.println("next node's val is " + t.parent.val);
 			}
-			
+
 		}
-		
+
 	}
-	
+
 
 }
