@@ -1,10 +1,12 @@
 package com.engure.design;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.PriorityQueue;
+import java.util.concurrent.PriorityBlockingQueue;
+
 
 /**
+ * https://leetcode-cn.com/problems/lru-cache/
  * 使用 PriorityQueue + hashmap + 版本号 实现。
  * 567ms。
  * 时间复杂度高。
@@ -21,9 +23,20 @@ class LRUCache146 {
      * @param args
      */
 
-    public static int version = 0;
+    public static int version = 0;//版本号，不使用 System.currentTimeMillis() 因为可能相同
 
     public static void main(String[] args) {
+
+        /*
+        补充：
+        一个无界阻塞队列，它使用与类PriorityQueue相同的排序规则并提供阻塞检索操作。
+        虽然这个队列在逻辑上是无界的，但由于资源耗尽（导致OutOfMemoryError ），尝试添加可能会失败。 此类不允许null元素。
+        依赖于自然排序的优先级队列也不允许插入不可比较的对象（这样做会导致ClassCastException ）。
+         */
+        PriorityBlockingQueue<String> priorityBlockingQueue = new PriorityBlockingQueue<>();
+
+        /////////////////////////////
+
         LRUCache146 l = new LRUCache146(10);
         l.put(10, 13);
         l.put(3, 17);
@@ -264,20 +277,4 @@ class Test146_2 {
     }
 }
 
-
-class LRUCache146_2 {
-
-    public LRUCache146_2(int capacity) {
-
-    }
-
-    public int get(int key) {
-
-        return 1;
-    }
-
-    public void put(int key, int value) {
-
-    }
-}
 
