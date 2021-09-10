@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class KMP28 {
     public static void main(String[] args) {
         System.out.println(new Solution28().strStr("mississippi", "issip"));
+        System.out.println(Solution28_2.indexOf("mississippi", "issip"));
     }
 }
 
