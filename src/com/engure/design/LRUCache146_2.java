@@ -9,7 +9,7 @@ import java.util.Map;
 时间复杂度：O(1)，用时 59ms，击败 33%
 >>> 还有很多问题~~~
 */
-class LRUCache146_2 {
+public class LRUCache146_2 {
 
     Map<String, Node> map;
 

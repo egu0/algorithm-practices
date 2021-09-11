@@ -12,7 +12,7 @@ import java.util.concurrent.PriorityBlockingQueue;
  * 时间复杂度高。
  */
 
-class LRUCache146 {
+public class LRUCache146 {
 
     /**
      * RUN：
