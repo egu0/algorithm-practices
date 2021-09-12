@@ -1,4 +1,4 @@
-package com.engure.design;
+package com.engure.design.lru146;
 
 import java.util.HashMap;
 import java.util.PriorityQueue;
