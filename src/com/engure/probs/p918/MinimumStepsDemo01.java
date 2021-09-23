@@ -1,5 +1,7 @@
 package com.engure.probs.p918;
 
+//题目：https://i.loli.net/2021/09/19/Fnx1GuDij6w2YZf.jpg
+
 //  A,B,,,,Z     26个大写字母构成了一个键盘
 // 输入一段字符串（都是大写字母），通过移动移动光标将他打印出来。
 // 其中包括：
@@ -12,6 +14,9 @@ package com.engure.probs.p918;
 // [index ... N-1]上
 //     1. 在 index 上使用魔法键
 //     2. 不在 index 上使用魔法键
+
+
+// 第一版
 
 public class MinimumStepsDemo01 {
     static char[] chs;//all capital
