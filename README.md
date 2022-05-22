@@ -1,2 +1,3 @@
 # practice_algo
-practice algorithm, record codes
+
+some algorithm code
