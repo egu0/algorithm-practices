@@ -10,7 +10,7 @@ https://www.nowcoder.com/practice/3959837097c7413a961a135d7104c314
 ---------
 官解 https://www.bilibili.com/video/BV1ea4y147FK
  */
-public class HJ52 {
+public class HJ52_edit_distance {
     public static void main(String[] args) {
         HJ52_recursive_nd_memorization.main(null);
     }

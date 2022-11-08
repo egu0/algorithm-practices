@@ -3,7 +3,6 @@ package im.engure.binarytree;
 public class ZheZhi {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		func(1, 3, true);
 	}
 
