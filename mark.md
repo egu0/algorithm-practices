@@ -5,3 +5,5 @@
 2. [放苹果](https://www.nowcoder.com/practice/bfd8234bb5e84be0b493656e390bdebf) - 常规dp，重点在子问题划分
 3. [质数因子](https://www.nowcoder.com/practice/196534628ca6490ebce2e336b47b3607) - 分解质因数
 4. [购物单](https://www.nowcoder.com/practice/f9c6f980eeec43ef85be20755ddbeaf4) - 动态规划，01背包问题变形
+5. [最长有效括号](https://leetcode.cn/problems/longest-valid-parentheses/) - 字符串、栈
+6. [组合总和II](https://leetcode.cn/problems/combination-sum-ii/) - 回溯、剪枝（经典题）
