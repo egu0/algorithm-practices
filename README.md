@@ -1,3 +1,3 @@
-# practice_algo
+# algorithm codes
 
 some algorithm code
