@@ -15,7 +15,43 @@ public class LargestSumOfAverages813 {
     }
 
     /**
-     * dp 法，根据备忘录法【变形】而来。在 fori 循环中，每次都依赖 i-1 这一列，因此可进一步将空间复杂度降为 O(N)
+     * 时间 O(K*N*N), 时间 O(N)
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
+    public double largestSumOfAverages2(int[] nums, int k) {
+        double[] dp0 = new double[nums.length + 1], dp1 = new double[nums.length + 1], ptr;
+        int sum = 0;
+        for (int j = nums.length - 1; j >= 0; j--) {
+            sum += nums[j];
+            dp0[j] = sum / (double) (nums.length - j);
+        }
+        for (int i = 2; i <= k; i++) {
+            for (int j = nums.length - 1; j >= 0; j--) {
+                double max = 0, tmp;
+                int cnt = 0;
+                for (int m = j; m < nums.length; m++) {
+                    cnt += nums[m];
+                    tmp = dp0[m + 1] + cnt / (double) (m - j + 1);
+                    if (tmp > max) {
+                        max = tmp;
+                    }
+                }
+                dp1[j] = max;
+            }
+            ptr = dp0;
+            dp0 = dp1;
+            dp1 = ptr;
+        }
+        return dp0[0];
+    }
+
+    /**
+     * dp 法，根据备忘录法【变形】而来。
+     * 时间 O(K*N*N), 空间 O(N*K)
+     * 在 fori 循环中，每次都依赖 i-1 这一列，因此可进一步将空间复杂度降为 O(N)
      *
      * @param nums
      * @param k

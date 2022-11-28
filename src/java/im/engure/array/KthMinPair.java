@@ -38,7 +38,9 @@ public class KthMinPair {
         }
     }
 
-    // 暴力解法, O(N^2 * log(N^2))
+    /**
+     * 暴力解法, O(N^2 * log(N^2))
+     */
     static Pair kthMinPair(int[] arr, int k) {
         int LEN = arr.length;
         if (k > LEN * LEN) return null;
@@ -54,63 +56,73 @@ public class KthMinPair {
         return all[k - 1];
     }
 
-    // 观察数值对排序后的规律，只用对初始数组排序即可 O(NlogN)
+    /**
+     * 观察数值对排序后的规律，只用对初始数组排序即可 O(NlogN)
+     */
     static Pair kthMinPair2(int[] arr, int k) {
-        int LEN = arr.length;
-        if (k > LEN * LEN) return null;
+        int len = arr.length;
+        if (k > len * len) {
+            return null;
+        }
         Arrays.sort(arr);
 
-        int first = arr[(k - 1) / LEN];//可以定位第一维
-        /*
-           int secon = arr[(k - 1) % LEN];//不可以使用这种方法定位第二维。除非已经定位的第一维度没有重复元素才可以使用这种方法定位第二维。
-           return new Pair(arr[(k - 1) / LEN], arr[(k - 1) % LEN]);
-         */
+        //定位第一个数
+        int first = arr[(k - 1) / len];
 
+        //定位第二个数
         int lessFirst = 0, equalFirst = 0;
-        for (int i = 0; i < LEN && arr[i] <= first; i++) {
-            if (arr[i] == first) equalFirst++;
-            else lessFirst++;
+        for (int i = 0; i < len && arr[i] <= first; i++) {
+            if (arr[i] == first) {
+                equalFirst++;
+            } else {
+                lessFirst++;
+            }
         }
 
-        int rest = k - lessFirst * LEN;
-        int secon = arr[(rest - 1) / equalFirst];
-        return new Pair(first, secon);
+        int rest = k - lessFirst * len;
+        int second = arr[(rest - 1) / equalFirst];
+        return new Pair(first, second);
     }
 
-    // O(N) 做法
-    // 解法2中对数组进行排序，目的就是计算数组中第 x 小的数字
-    // 借助 bfprt 算法计算数组中第 x 小的数字
-    // 可以对解法2做修改：
+    /**
+     * O(N) 做法
+     * 解法 2 中对数组进行排序，目的就是计算数组中第 x 小的数字
+     * 可以借助 bfprt 算法计算数组中第 x 小的数字
+     *
+     * @param arr
+     * @param k
+     * @return
+     */
     static Pair kthMinPair3(int[] arr, int k) {
-        int LEN = arr.length;
-        if (k > LEN * LEN) return null;
+        int len = arr.length;
+        if (k > len * len) {
+            return null;
+        }
 
         //int first = arr[(k - 1) / LEN];
-        int first = bfprt(arr, (k - 1) / LEN + 1); // 第 x 小的元素（x = 1...）
+        // 第 x 小的元素（x = 1...）
+        int first = BfprtUtil.bfprt(arr, 0, arr.length - 1, (k - 1) / len + 1);
 
         int lessFirst = 0, equalFirst = 0;
-        for (int i = 0; i < LEN; i++) {
-            if (arr[i] == first) equalFirst++;
-            else if (arr[i] < first) lessFirst++;
+        for (int i = 0; i < len; i++) {
+            if (arr[i] == first) {
+                equalFirst++;
+            } else if (arr[i] < first) {
+                lessFirst++;
+            }
         }
 
-        int rest = k - lessFirst * LEN;
-        //int secon = arr[(rest - 1) / equalFirst];
-        int secon = bfprt(arr, (rest - 1) / equalFirst + 1);
-        return new Pair(first, secon);
+        int rest = k - lessFirst * len;
+        int second = BfprtUtil.bfprt(arr, 0, arr.length - 1, (rest - 1) / equalFirst + 1);
+        return new Pair(first, second);
     }
 
-    // O(N) 时间计算数组第 K 小的数字
-    // notes/array.md
-    public static int bfprt(int[] arr, int k) {
-
-        return 0;
-    }
 
     public static void main(String[] args) {
         int[] arr = new int[]{1, 1, 2, 3, 3, 4, 5, 5, 5, 6};
-        System.out.println(kthMinPair(arr, 1));
-        System.out.println(kthMinPair2(arr, 1));
+        System.out.println(kthMinPair(arr, 82));
+        System.out.println(kthMinPair2(arr, 82));
+        System.out.println(kthMinPair3(arr, 82));
     }
 
 }
