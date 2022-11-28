@@ -19,7 +19,7 @@
 
 #### 图论
 
-1.[882.细分图中的可到达节点](https://leetcode.cn/problems/reachable-nodes-in-subdivided-graph/) - dijkstra
+1. [882.细分图中的可到达节点](https://leetcode.cn/problems/reachable-nodes-in-subdivided-graph/) - dijkstra
 
 ### 2、业务题
 
