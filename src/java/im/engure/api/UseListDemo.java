@@ -14,7 +14,8 @@ public class UseListDemo {
         l1.contains(1);
         l1.add(0, 1);
 
-        LinkedList<Integer> l2 = new LinkedList<>();//双链表。实现了 Set、Deque（继承了Queue） 接口
+        //双链表。实现了 Set、Deque（继承了Queue） 接口
+        LinkedList<Integer> l2 = new LinkedList<>();
         l2.add(1);
         l2.get(0);
         l2.remove(0);

@@ -50,19 +50,11 @@
 
 又称为中位数的中位数算法，线性查找数组中第 K 大（小）的数
 
-> **BFPRT** 算法，又称为中位数的中位数算法，由5位大牛（Blum 、 Floyd 、 Pratt 、 Rivest 、 Tarjan）提出，并以他们的名字命名。参考维基上的介绍Median of medians。
-> 在BFPTR算法中，仅仅是改变了快速排序Partion中的pivot值的选取，在快速排序中，我们始终选择第一个元素或者最后一个元素作为pivot，而在BFPTR算法中，每次选择五分中位数的中位数作为pivot，这样做的目的就是使得划分比较合理，从而避免了最坏情况的发生。算法步骤如下
-> 1. 将 [Math Processing Error] 个元素划为 [Math Processing Error] 组，每组5个，至多只有一组由 [Math Processing Error] 个元素组成。
-> 2. 寻找这 [Math Processing Error] 个组中每一个组的中位数，这个过程可以用插入排序。
-> 3. 对步骤2中的 [Math Processing Error] 个中位数，重复步骤1和步骤2，递归下去，直到剩下一个数字。
-> 4. 最终剩下的数字即为pivot，把大于它的数全放左边，小于等于它的数全放右边。
-> 5. 判断pivot的位置与k的大小，有选择的对左边或右边递归。
-
 链接：
 
-- 算法原理：https://www.youtube.com/watch?v=PY7YiJQa3Lc
-
-- 算法实现：https://zhuanlan.zhihu.com/p/31498036
+- https://en.wikipedia.org/wiki/Median_of_medians
+- https://brilliant.org/wiki/median-finding-algorithm/
+- https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/866686/java-median-of-medians-solution-beats-99-with-comments-to-explain-the-algorithm
 
 
 
