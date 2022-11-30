@@ -7,10 +7,13 @@ import java.util.Arrays;
 学习来源：https://www.bilibili.com/video/BV1ti4y1879c
  */
 
+/**
+ * @author Administrator
+ */
 public class MaxHeap {
 
-    /*
-    堆排序：将所有元素插入一个堆中，不断取出堆顶元素
+    /**
+     * 堆排序：将所有元素插入一个堆中，不断取出堆顶元素
      */
     public static void main(String[] args) {
         int[] arr = {-1, 8, 2, 100, 30, 13, 66};
@@ -26,10 +29,12 @@ public class MaxHeap {
 
     int size = 0;
     int len;
-    int[] arr;//存放元素
+    int[] arr;
 
     public MaxHeap(int len) {
-        if (len < 1) throw new RuntimeException("illegal length");
+        if (len < 1) {
+            throw new RuntimeException("illegal length");
+        }
         this.len = len;
         arr = new int[len];
     }
@@ -38,11 +43,13 @@ public class MaxHeap {
         return size;
     }
 
-    /*
-    取堆顶并删除，O(logN)
+    /**
+     * 取堆顶并删除，O(logN)
      */
     public int poll() {
-        if (size == 0) throw new RuntimeException("empty heap");
+        if (size == 0) {
+            throw new RuntimeException("empty heap");
+        }
         int ele = arr[0];
         arr[0] = arr[size - 1];
         arr[--size] = 0;
@@ -50,13 +57,16 @@ public class MaxHeap {
         return ele;
     }
 
-    /*
-    下沉
+    /**
+     * 下沉 O(logN)
      */
     private void heapifyDown() {
-        int index = 0;//从新堆顶开始
+        //从新堆顶开始
+        int index = 0;
         int largerChild, newIndex, tmp;
-        while (getLeftChildIndex(index) < size) {//如果有左孩子
+
+        //如果有左孩子
+        while (getLeftChildIndex(index) < size) {
             newIndex = getLeftChildIndex(index);
             largerChild = getLeftChild(index);
             //如果有右孩子
@@ -71,21 +81,25 @@ public class MaxHeap {
                 arr[index] = largerChild;
                 arr[newIndex] = tmp;
                 index = newIndex;
-            } else break;//没有大孩子则停止
+            } else {
+                break;//没有大孩子则停止
+            }
 
         }
     }
 
-    /*
-    堆顶，O(1)
+    /**
+     * 堆顶，O(1)
      */
     public int peek() {
-        if (size == 0) throw new RuntimeException("empty heap");
+        if (size == 0) {
+            throw new RuntimeException("empty heap");
+        }
         return arr[0];
     }
 
-    /*
-    入堆，O(logN)
+    /**
+     * 入堆，O(logN)
      */
     public void add(int val) {
         if (size == len) {
@@ -96,8 +110,8 @@ public class MaxHeap {
         heapifyUp(size - 1);
     }
 
-    /*
-    上浮
+    /**
+     * 上浮, O(logN)
      */
     private void heapifyUp(int index) {
         int tmp;
@@ -122,11 +136,11 @@ public class MaxHeap {
     }
 
     private int getLeftChild(int index) {
-        return arr[getLeftChildIndex(index)];//exp
+        return arr[getLeftChildIndex(index)];
     }
 
     private int getRightChild(int index) {
-        return arr[getRightChildIndex(index)];//exp
+        return arr[getRightChildIndex(index)];
     }
 
     private int getParent(int index) {

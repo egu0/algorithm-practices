@@ -26,3 +26,4 @@
 业务题特点：注重分析能力，最优解就是在该题专有的业务上，找到聪明的做法。
 
 1. [1753. 移除石子的最大得分](https://leetcode.cn/problems/maximum-score-from-removing-stones/)
+2. [895. 最大频率栈](https://leetcode.cn/problems/maximum-frequency-stack/)
