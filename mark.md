@@ -30,9 +30,11 @@
 
 ### 题目来源
 
-1. cf_ 开头题目来自 https://codeforces.com/
+1. CF_ 开头题目来自 https://codeforces.com/
 2. HJ 开头题目来自 https://www.nowcoder.com/exam/oj
 3. XN 字母+数字表示题目缩写+编号，来自 https://leetcode.cn/
 4. 其他，demo程序
 
+### 多线程题目
 
+1. [三个线程按序打印123](https://leetcode.cn/problems/print-in-order/) - wait/notify/notifyAll, Lock等 ⭐

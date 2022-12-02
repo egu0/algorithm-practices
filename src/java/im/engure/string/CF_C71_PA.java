@@ -7,7 +7,7 @@ import java.util.Scanner;
  * <a href="https://codeforces.com/contest/71/problem/A">...</a>
  * Contest 71， Problem A
  */
-public class cF_C71_PA {
+public class CF_C71_PA {
     public static void main(String[] args) {
         int n;
         Scanner in = new Scanner(System.in);
