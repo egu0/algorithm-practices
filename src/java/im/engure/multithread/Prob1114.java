@@ -1,5 +1,6 @@
 package im.engure.multithread;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -12,7 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class Prob1114 {
     public static void main(String[] args) throws InterruptedException {
-        Foo foo = new Foo();
+        Foo foo = new Foo1();
         one(foo);
         two(foo);
         three(foo);
@@ -49,13 +50,22 @@ public class Prob1114 {
     }
 }
 
-class Foo {
+interface Foo {
+
+    public void first(Runnable printFirst) throws InterruptedException;
+
+    public void second(Runnable printSecond) throws InterruptedException;
+
+    public void third(Runnable printThird) throws InterruptedException;
+}
+
+class Foo1 implements Foo {
     Lock lock = new ReentrantLock();
     Condition c1, c2;//定向通知
 
     volatile int state = 1;
 
-    public Foo() {
+    public Foo1() {
         c1 = lock.newCondition();
         c2 = lock.newCondition();
     }
@@ -101,5 +111,33 @@ class Foo {
         } finally {
             lock.unlock();
         }
+    }
+}
+
+class Foo2 implements Foo {
+
+    CountDownLatch l1 = new CountDownLatch(1);
+    CountDownLatch l2 = new CountDownLatch(1);
+
+    public Foo2() {
+    }
+
+    @Override
+    public void first(Runnable printFirst) throws InterruptedException {
+        printFirst.run();
+        l1.countDown();
+    }
+
+    @Override
+    public void second(Runnable printSecond) throws InterruptedException {
+        l1.await();
+        printSecond.run();
+        l2.countDown();
+    }
+
+    @Override
+    public void third(Runnable printThird) throws InterruptedException {
+        l2.await();
+        printThird.run();
     }
 }

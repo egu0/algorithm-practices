@@ -1,4 +1,4 @@
-package im.engure.testpkg;
+package im.engure.testcases;
 
 public class T3 {
     static Object obj = new Object();

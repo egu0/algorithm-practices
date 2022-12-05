@@ -1,4 +1,4 @@
-package im.engure.testpkg;
+package im.engure.testcases;
 
 import java.io.*;
 import java.util.concurrent.BrokenBarrierException;
