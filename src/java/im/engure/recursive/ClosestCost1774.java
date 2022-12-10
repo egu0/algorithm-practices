@@ -1,5 +1,7 @@
 package im.engure.recursive;
 
+import im.engure.util.Assertions;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,9 +12,52 @@ import java.util.Set;
 public class ClosestCost1774 {
 
     public static void main(String[] args) {
-        System.out.println(new ClosestCost1774().closestCost(new int[]{3, 10}, new int[]{2, 5}, 9));
-        System.out.println(new ClosestCost1774().closestCost(new int[]{2, 3}, new int[]{3}, 10));
+        ClosestCost1774 o = new ClosestCost1774();
+        Assertions.assertSame(o.closestCost2(new int[]{3, 10}, new int[]{2, 5}, 9), 8);
+        Assertions.assertSame(o.closestCost2(new int[]{3, 10}, new int[]{2, 5}, 9), 8);
+        Assertions.assertSame(o.closestCost2(new int[]{2, 3}, new int[]{3}, 10), 9);
+        Assertions.assertSame(o.closestCost2(new int[]{1, 7}, new int[]{3, 4}, 10), 10);
+        Assertions.assertSame(o.closestCost2(new int[]{2, 3}, new int[]{4, 5, 100}, 18), 17);
+        Assertions.assertSame(o.closestCost2(new int[]{10}, new int[]{1}, 1), 10);
     }
+
+    /**
+     * 最接近目标价格的成本
+     *
+     * @param b      基料价格，必须选择 1 种基料
+     * @param t      配料价格，可选，每种配料最多两份
+     * @param target 目标价格
+     * @return
+     */
+    public int closestCost2(int[] b, int[] t, int target) {
+        int[] result = new int[]{Integer.MAX_VALUE};
+
+        for (int p : b) {
+            process(b, t, p, 0, target, result);
+        }
+
+        return result[0];
+    }
+
+    private void process(int[] b, int[] t, int curPrice, int tIdx, int target, int[] resultWrapper) {
+        int result = resultWrapper[0];
+
+        int relativeVal = Math.abs(curPrice - target) - Math.abs(result - target);
+        if (relativeVal < 0 || (relativeVal == 0 && curPrice < result)) {
+            resultWrapper[0] = curPrice;
+        }
+
+        // because t[x]>0
+        if (curPrice >= target || tIdx >= t.length) {
+            return;
+        }
+
+        process(b, t, curPrice, tIdx + 1, target, resultWrapper);
+        process(b, t, curPrice + t[tIdx], tIdx + 1, target, resultWrapper);
+        process(b, t, curPrice + 2 * t[tIdx], tIdx + 1, target, resultWrapper);
+    }
+
+    // region solution1
 
     private int best = (int) 1e9;
     private int target;
@@ -45,6 +90,8 @@ public class ClosestCost1774 {
         }
 
     }
+
+    // endregion
 
     /***************************** another solution *************************************/
 
