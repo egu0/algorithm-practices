@@ -39,3 +39,7 @@
 ### 多线程题目
 
 1. [三个线程按序打印123](https://leetcode.cn/problems/print-in-order/) - wait/notify/notifyAll, Lock等 ⭐
+
+### 闯关失败
+
+1. [1687. 从仓库到码头运输箱子](https://leetcode.cn/problems/delivering-boxes-from-storage-to-ports/) - DP法（条件较多）
