@@ -17,6 +17,7 @@
 8. [正则表达式匹配](https://leetcode.cn/problems/regular-expression-matching/)，[通配符匹配](https://leetcode.cn/problems/wildcard-matching/comments/) - 经典字符串dp
 9. [吃苹果的最大数目](https://leetcode.cn/problems/maximum-number-of-eaten-apples/) - 贪心、优先级队列
 10. [最接近目标价格的甜点成本](https://leetcode.cn/problems/closest-dessert-cost/) - 暴力搜索
+11. [所有子字符串美丽值之和](https://leetcode.cn/problems/sum-of-beauty-of-all-substrings/) - 暴力法
 
 #### 图论
 
