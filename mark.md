@@ -44,3 +44,9 @@
 ### 闯关失败
 
 1. [1687. 从仓库到码头运输箱子](https://leetcode.cn/problems/delivering-boxes-from-storage-to-ports/) - DP法（条件较多）
+2. [1697. 检查边长度限制的路径是否存在](https://leetcode.cn/problems/checking-existence-of-edge-length-limited-paths/) - 并查集+离线算法
+
+### 二叉树
+
+1. [面试题 04.08. 首个共同祖先](https://leetcode.cn/problems/first-common-ancestor-lcci/) - 可反复食用
+
