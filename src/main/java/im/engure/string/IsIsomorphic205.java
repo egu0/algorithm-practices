@@ -1,4 +1,4 @@
-package com.engure.string;
+package im.engure.string;
 
 import java.util.HashMap;
 import java.util.HashSet;

@@ -1,3 +1,2 @@
-# algorithm codes
+# algorithm practices
 
-some algorithm code

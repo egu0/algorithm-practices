@@ -1,7 +1,5 @@
 package im.engure.string;
 
-import netscape.security.UserTarget;
-
 /**
  * @author engure
  */

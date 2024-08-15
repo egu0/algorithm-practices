@@ -1,4 +1,4 @@
-package com.engure.binarysearch;
+package im.engure.binarysearch;
 
 import java.util.Arrays;
 
