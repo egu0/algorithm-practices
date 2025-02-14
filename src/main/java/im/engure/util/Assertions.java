@@ -1,5 +1,8 @@
 package im.engure.util;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Assertions {
 
     public static void assertTruth(Boolean bool) {
@@ -29,8 +32,8 @@ public class Assertions {
 
             System.out.println("Assertion passed, " + i1 + " == " + i2);
 
-        } catch (RuntimeException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("斷言失敗", e);
         }
     }
 
