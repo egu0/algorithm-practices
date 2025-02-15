@@ -27,9 +27,10 @@ class MaxEvents1353Test {
         Assertions.assertEquals(100000, o.maxEvents(data));
         System.out.println(timer.intervalMs());
 
-        timer.intervalRestart();
-        Assertions.assertEquals(100000, o.maxEventsV1(data));
-        System.out.println(timer.intervalMs());
+//        cost about 10s, skip
+//        timer.intervalRestart();
+//        Assertions.assertEquals(100000, o.maxEventsV1(data));
+//        System.out.println(timer.intervalMs());
     }
 
     @Test

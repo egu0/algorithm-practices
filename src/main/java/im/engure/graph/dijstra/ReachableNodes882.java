@@ -30,12 +30,8 @@ public class ReachableNodes882 {
      * cnti（边可细分的新节点数）可作为边的权值
      * 此题可转化成计算单源最短路径（dijkstra）
      * solution article：<a href="https://leetcode.cn/problems/reachable-nodes-in-subdivided-graph/solution/tu-jie-zhuan-huan-cheng-dan-yuan-zui-dua-6l8o/">...</a>
-     *
-     * @param edges
-     * @param maxMoves
-     * @param n
-     * @return
      */
+    @SuppressWarnings("all")
     public int reachableNodes(int[][] edges, int maxMoves, int n) {
         List<int[]>[] g = new ArrayList[n];
         Arrays.setAll(g, e -> new ArrayList<int[]>());
@@ -74,6 +70,7 @@ public class ReachableNodes882 {
     /**
      * Dijkstra 算法模板
      */
+    @SuppressWarnings("all")
     private int[] dijkstra(List<int[]>[] g, int start) {
         int[] dist = new int[g.length];
         Arrays.fill(dist, Integer.MAX_VALUE);
@@ -113,6 +110,7 @@ public class ReachableNodes882 {
     boolean[] passed;
     int totalNum;
 
+    @SuppressWarnings("all")
     public int reachableNodes2(int[][] edges, int maxMoves, int n) {
         //ready
         data = new HashMap<>();
@@ -146,11 +144,7 @@ public class ReachableNodes882 {
             int l = edge[2];
             int p1 = data.get(u).get(v)[1];
             int p2 = data.get(v).get(u)[1];
-            if (p1 + p2 >= l) {
-                ans += l;
-            } else {
-                ans += p1 + p2;
-            }
+            ans += Math.min(p1 + p2, l);
         }
         return ans;
     }
