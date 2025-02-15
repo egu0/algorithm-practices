@@ -6,8 +6,8 @@ public class MinElements1785 {
 
     public static void main(String[] args) {
         MinElements1785 o = new MinElements1785();
-        Assertions.assertSame(o.minElements(new int[]{1, -1, 1}, 3, -4), 2);
-        Assertions.assertSame(o.minElements(new int[]{1, -10, 9, 1}, 100, 0), 1);
+        Assertions.assertEqual(o.minElements(new int[]{1, -1, 1}, 3, -4), 2);
+        Assertions.assertEqual(o.minElements(new int[]{1, -10, 9, 1}, 100, 0), 1);
     }
 
     /**

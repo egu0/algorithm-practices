@@ -2,16 +2,11 @@ package im.engure.unclassified;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.date.TimeInterval;
-import cn.hutool.core.io.file.FileReader;
-import cn.hutool.core.io.resource.ClassPathResource;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import im.engure.priorityqueue.MaxEvents1353;
+import im.engure.util.MyDataLoader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 class MaxEvents1353Test {
 
@@ -25,19 +20,7 @@ class MaxEvents1353Test {
     @Test
     void maxEvents100000() {
         // 讀取大數組測試用例
-        FileReader fileReader = FileReader.create(new ClassPathResource("1353.json").getFile());
-        String json = fileReader.readString();
-        JSONArray jsonArr = JSON.parseArray(json);
-        Object[] array = jsonArr.toArray();
-        int[][] data = new int[100000][];
-        int i = 0;
-        for (Object item : array) {
-            JSONArray ja = ((JSONArray) item);
-            List<Integer> l = ja.toJavaList(int.class);
-            data[i] = new int[2];
-            data[i][0] = l.get(0);
-            data[i++][1] = l.get(1);
-        }
+        int[][] data = MyDataLoader.loadTwoDimensionsJSONArray("1353.json");
 
         // 統計運行時間
         TimeInterval timer = DateUtil.timer();

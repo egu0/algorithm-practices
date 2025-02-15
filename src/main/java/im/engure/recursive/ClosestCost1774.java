@@ -13,12 +13,12 @@ public class ClosestCost1774 {
 
     public static void main(String[] args) {
         ClosestCost1774 o = new ClosestCost1774();
-        Assertions.assertSame(o.closestCost2(new int[]{3, 10}, new int[]{2, 5}, 9), 8);
-        Assertions.assertSame(o.closestCost2(new int[]{3, 10}, new int[]{2, 5}, 9), 8);
-        Assertions.assertSame(o.closestCost2(new int[]{2, 3}, new int[]{3}, 10), 9);
-        Assertions.assertSame(o.closestCost2(new int[]{1, 7}, new int[]{3, 4}, 10), 10);
-        Assertions.assertSame(o.closestCost2(new int[]{2, 3}, new int[]{4, 5, 100}, 18), 17);
-        Assertions.assertSame(o.closestCost2(new int[]{10}, new int[]{1}, 1), 10);
+        Assertions.assertEqual(o.closestCost2(new int[]{3, 10}, new int[]{2, 5}, 9), 8);
+        Assertions.assertEqual(o.closestCost2(new int[]{3, 10}, new int[]{2, 5}, 9), 8);
+        Assertions.assertEqual(o.closestCost2(new int[]{2, 3}, new int[]{3}, 10), 9);
+        Assertions.assertEqual(o.closestCost2(new int[]{1, 7}, new int[]{3, 4}, 10), 10);
+        Assertions.assertEqual(o.closestCost2(new int[]{2, 3}, new int[]{4, 5, 100}, 18), 17);
+        Assertions.assertEqual(o.closestCost2(new int[]{10}, new int[]{1}, 1), 10);
     }
 
     /**
@@ -27,7 +27,6 @@ public class ClosestCost1774 {
      * @param b      基料价格，必须选择 1 种基料
      * @param t      配料价格，可选，每种配料最多两份
      * @param target 目标价格
-     * @return
      */
     public int closestCost2(int[] b, int[] t, int target) {
         int[] result = new int[]{Integer.MAX_VALUE};
@@ -103,8 +102,6 @@ public class ClosestCost1774 {
      *
      * @param baseCosts    length m
      * @param toppingCosts length n
-     * @param target
-     * @return
      */
     public int closestCost1(int[] baseCosts, int[] toppingCosts, int target) {
         for (int baseCost : baseCosts) {
