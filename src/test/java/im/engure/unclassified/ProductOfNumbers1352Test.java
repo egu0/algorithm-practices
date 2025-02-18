@@ -1,6 +1,6 @@
 package im.engure.unclassified;
 
-import im.engure.busipro.ProductOfNumbers1352;
+import im.engure.design.ProductOfNumbers1352;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
