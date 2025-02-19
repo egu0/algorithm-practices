@@ -1,4 +1,6 @@
-package im.engure.binarytree;
+package im.engure.binarytree.old;
+
+import im.engure.binarytree.TreeNode;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -13,17 +15,17 @@ import java.util.Stack;
 public class TraverseTree {
 
 	public static void main(String[] args) {
-		Node h = new Node(100);
-		Node n1 = new Node(0);
-		Node n2 = new Node(150);
-		Node n3 = new Node(-222222);
-		Node n4 = new Node(50);
+		TreeNode h = new TreeNode(100);
+		TreeNode n1 = new TreeNode(0);
+		TreeNode n2 = new TreeNode(150);
+		TreeNode n3 = new TreeNode(-222222);
+		TreeNode n4 = new TreeNode(50);
 		h.left=n1;
 		n1.left=n3;
 		n1.right=n4;
-		Node n5 = new Node(120);
-		Node n6 = new Node(55555555);
-		Node n7 = new Node(180);
+		TreeNode n5 = new TreeNode(120);
+		TreeNode n6 = new TreeNode(55555555);
+		TreeNode n7 = new TreeNode(180);
 		h.right=n2;
 		n2.left=n5;
 		n2.right=n6;
@@ -60,7 +62,7 @@ public class TraverseTree {
 	}
 
 	// 后续非递归 双栈法
-	private static void postNonRecurion(Node h) {
+	private static void postNonRecurion(TreeNode h) {
 		if (h != null) {
 			// 头右左 遍历序列的逆序结果
 
@@ -68,7 +70,7 @@ public class TraverseTree {
 			//2.弹栈stack，对弹出节点的左子树重复 1.
 
 			//stack2：100 150 55555 180 120 0 50 -22222，倒序为后序遍历
-			Stack<Node> stack = new Stack<Node>();
+			Stack<TreeNode> stack = new Stack<TreeNode>();
 			Stack<Integer> stack2 = new Stack<>();
 			while (!stack.empty() || h!=null) {
 				if (h != null) {
@@ -76,7 +78,7 @@ public class TraverseTree {
 					stack.push(h);
 					h = h.right;
 				} else {
-					Node n = stack.pop();
+					TreeNode n = stack.pop();
 					h = n.left;
 				}
 
@@ -93,15 +95,15 @@ public class TraverseTree {
 	}
 
 	// 单栈后继遍历（巧妙地利用指针、卡逻辑）
-	private static void pos2(Node h) {
+	private static void pos2(TreeNode h) {
 		// 双指针
 		// 先处理左树、再处理右树、最后处理头节点
 
 		System.out.println("pos-order: ");
 		if (h != null) {
-			Stack<Node> stack = new Stack<Node>();
+			Stack<TreeNode> stack = new Stack<TreeNode>();
 			stack.push(h);
-			Node c = null;
+			TreeNode c = null;
 			while (!stack.empty()) {
 				c = stack.peek();// 栈顶
 
@@ -121,11 +123,11 @@ public class TraverseTree {
 		System.out.println();
 	}
 
-	private static void pos3(Node h) {
+	private static void pos3(TreeNode h) {
 		// 不使用 双指针是否可实现？
 
 		if (h != null) {
-			Stack<Node> stack = new Stack<Node>();
+			Stack<TreeNode> stack = new Stack<TreeNode>();
 			stack.push(h);
 			while (!stack.empty()) {
 				if (h.left != null) {
@@ -136,9 +138,9 @@ public class TraverseTree {
 					h = h.right;
 				} else {
 					if (stack.size() >= 2) {
-						Node n = stack.pop();
+						TreeNode n = stack.pop();
 						System.out.println(n.val + " ");
-						Node m = stack.peek();
+						TreeNode m = stack.peek();
 
 						// 此时打印节点并弹栈，如何进行标记 才能不进入死循环？
 
@@ -158,18 +160,18 @@ public class TraverseTree {
 	}
 
 	// 中序非递归
-	private static void inNonRecurion(Node h) {
+	private static void inNonRecurion(TreeNode h) {
 		// 左头右
 		// 1.整条左边界入栈
 		// 2.左边界到头1.无法继续，则弹栈打印，来到右树继续执行1.
 		if (h != null) {
-			Stack<Node> stack = new Stack<Node>();
+			Stack<TreeNode> stack = new Stack<TreeNode>();
 			while (!stack.empty() || h!=null) {
 				if (h != null) {
 					stack.push(h);
 					h = h.left;
 				} else {
-					Node n = stack.pop();
+					TreeNode n = stack.pop();
 					System.out.print(n.val + " ");
 					h = n.right;
 				}
@@ -180,19 +182,19 @@ public class TraverseTree {
 	}
 
 	// 前序非递归
-	private static void preNonRecurion(Node h) {
+	private static void preNonRecurion(TreeNode h) {
 		// 头左右
 		//1.左边界依次打印入栈
 		//2.当1.不能继续时弹栈，对右子树执行1.
 		if (h != null) {
-			Stack<Node> stack = new Stack<Node>();
+			Stack<TreeNode> stack = new Stack<TreeNode>();
 			while (!stack.empty() || h!=null) {
 				if (h != null) {
 					System.out.print(h.val + " ");
 					stack.push(h);
 					h = h.left;
 				} else {
-					Node n = stack.pop();
+					TreeNode n = stack.pop();
 					h = n.right;
 				}
 
@@ -208,13 +210,13 @@ public class TraverseTree {
 
 
 	// 层级遍历
-	private static void levelOrder(Node h) {
-		LinkedList<Node> q = new LinkedList<Node>();
+	private static void levelOrder(TreeNode h) {
+		LinkedList<TreeNode> q = new LinkedList<TreeNode>();
 //		q.pop();  删除首部第一个元素
 //		q.add(e); 向尾部添加一个元素
 		q.add(h);
 		while (q.size() != 0) {
-			Node n = q.pop();
+			TreeNode n = q.pop();
 			System.out.print(n.val + " ");
 			if (n.left != null) {
 				q.add(n.left);
@@ -226,17 +228,17 @@ public class TraverseTree {
 	}
 
 	// 求最大树宽（层序遍历、切入点：当前层的末尾节点）
-	private static int getMaxWidth(Node h) {
+	private static int getMaxWidth(TreeNode h) {
 		if (h != null) {
-			Queue<Node> queue = new LinkedList<Node>();
+			Queue<TreeNode> queue = new LinkedList<TreeNode>();
 			queue.add(h);
-			Node curEnd = h;		// 当前行末尾节点
-			Node nextEnd = null;	// 下一行末尾节点
+			TreeNode curEnd = h;		// 当前行末尾节点
+			TreeNode nextEnd = null;	// 下一行末尾节点
 			int curLevelNodeNum = 0;// 当前行节点数
 			int max = 0;			// 最大节点数
 
 			while (!queue.isEmpty()) {
-				Node n = queue.poll();
+				TreeNode n = queue.poll();
 				if (n.left != null) {
 					queue.add(n.left);
 					nextEnd = n.left;
@@ -257,17 +259,17 @@ public class TraverseTree {
 		return 0;
 	}
 
-	private static void getMaxWidth2(Node h) {
+	private static void getMaxWidth2(TreeNode h) {
 		if (h != null) {
-			HashMap<Node, Integer> map = new HashMap<Node, Integer>();
-			Queue<Node> queue = new LinkedList<Node>();
+			HashMap<TreeNode, Integer> map = new HashMap<TreeNode, Integer>();
+			Queue<TreeNode> queue = new LinkedList<TreeNode>();
 			map.put(h, 1);
 			queue.add(h);
 			int curLevel = 1;			// 当前第几层
 			int curLevelNodeNum = 0;	// 当前层节点数
 			int max = 0;				// 最大节点数
 			while (!queue.isEmpty()) {
-				Node n = queue.poll();
+				TreeNode n = queue.poll();
 				Integer levelNum = map.get(n);
 				if (n.left != null) {
 					queue.add(n.left);
@@ -294,7 +296,7 @@ public class TraverseTree {
 
 
 	// 递归方式
-	private static void postOrder(Node h) {
+	private static void postOrder(TreeNode h) {
 		if (h == null) {
 			return;
 		}
@@ -304,7 +306,7 @@ public class TraverseTree {
 		System.out.print(h.val + " ");
 	}
 
-	private static void inOrder(Node h) {
+	private static void inOrder(TreeNode h) {
 		if (h == null) {
 			return;
 		}
@@ -313,7 +315,7 @@ public class TraverseTree {
 		inOrder(h.right);
 	}
 
-	private static void preOrder(Node h) {
+	private static void preOrder(TreeNode h) {
 		if (h == null) {
 			return;
 		}
@@ -330,7 +332,7 @@ public class TraverseTree {
 	 * 打印 【递归序】
 	 * @param h 头节点
 	 */
-	private static void printRecursionSequence(Node h) {
+	private static void printRecursionSequence(TreeNode h) {
 		if (h == null) {
 			return ;
 		}

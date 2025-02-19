@@ -1,11 +1,13 @@
-package im.engure.binarytree;
+package im.engure.binarytree.leetcode;
+
+import im.engure.binarytree.TreeNode;
 
 import java.util.*;
 
 /**
  * @author engure
  */
-public class Sol625 {
+public class MinimumOperations2471 {
     public int minimumOperations(TreeNode root) {
         int ans = 0;
         Queue<TreeNode> q = new LinkedList<>();
@@ -25,16 +27,8 @@ public class Sol625 {
         return ans;
     }
 
-    public static void main(String[] args) {
-//        System.out.println(new Sol625().process(new int[]{20, 46, 15, 39}));
-        System.out.println(new Sol625().process2(new int[]{7, 6, 8, 5}));
-    }
-
     /**
      * hashmap + 数组。可 ac
-     *
-     * @param arr
-     * @return
      */
     public int process2(int[] arr) {
         int len = 0;
@@ -60,8 +54,7 @@ public class Sol625 {
             ans++;
         }
 
-        for (int i = 0; i < arr.length; i++)
-            System.out.print(arr[i] + ", ");
+        for (int j : arr) System.out.print(j + ", ");
         System.out.println("]");
 
         return ans;
@@ -69,9 +62,6 @@ public class Sol625 {
 
     /**
      * 优先队列（堆排序思想）。超时
-     *
-     * @param arr
-     * @return
      */
     public int process(int[] arr) {
         if (arr.length <= 1) return 0;
@@ -110,17 +100,6 @@ public class Sol625 {
         int t = arr[j];
         arr[j] = arr[i];
         arr[i] = t;
-    }
-}
-
-class TreeNode {
-    int val;
-    TreeNode left, right;
-
-    public TreeNode(int val, TreeNode l, TreeNode r) {
-        this.val = val;
-        this.left = l;
-        this.right = r;
     }
 }
 

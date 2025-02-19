@@ -1,4 +1,4 @@
-package im.engure.binarytree;
+package im.engure.binarytree.old;
 
 public class ZheZhi {
 

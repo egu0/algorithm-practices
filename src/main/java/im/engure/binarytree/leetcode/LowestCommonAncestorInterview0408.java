@@ -1,4 +1,6 @@
-package im.engure.binarytree;
+package im.engure.binarytree.leetcode;
+
+import im.engure.binarytree.TreeNode;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -30,11 +32,6 @@ public class LowestCommonAncestorInterview0408 {
 
     /**
      * TODO 根据【题目提示】继续优化
-     *
-     * @param root
-     * @param p
-     * @param q
-     * @return
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
@@ -45,11 +42,6 @@ public class LowestCommonAncestorInterview0408 {
      * PASSED
      * 回溯法遍历两次
      * 8ms、42Mb
-     *
-     * @param root
-     * @param p
-     * @param q
-     * @return
      */
     public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
         List<TreeNode> p1 = new ArrayList<>();
@@ -100,11 +92,6 @@ public class LowestCommonAncestorInterview0408 {
     /**
      * 内存超限!
      * pass/total: 29/31
-     *
-     * @param root
-     * @param p
-     * @param q
-     * @return
      */
     public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
         List<TreeNode> path1 = new ArrayList<>();
@@ -128,7 +115,7 @@ public class LowestCommonAncestorInterview0408 {
 
     private void getPathByRecursion(TreeNode cur, TreeNode target, List<TreeNode> curPath,
                                     List<TreeNode> targetPath) {
-        if (targetPath.size() != 0 || cur == null) {
+        if (!targetPath.isEmpty() || cur == null) {
             return;
         }
 
