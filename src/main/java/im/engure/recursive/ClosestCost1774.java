@@ -1,6 +1,6 @@
 package im.engure.recursive;
 
-import im.engure.util.Assertions;
+import im.engure.util.MyAssertions;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -13,12 +13,12 @@ public class ClosestCost1774 {
 
     public static void main(String[] args) {
         ClosestCost1774 o = new ClosestCost1774();
-        Assertions.assertEqual(o.closestCost2(new int[]{3, 10}, new int[]{2, 5}, 9), 8);
-        Assertions.assertEqual(o.closestCost2(new int[]{3, 10}, new int[]{2, 5}, 9), 8);
-        Assertions.assertEqual(o.closestCost2(new int[]{2, 3}, new int[]{3}, 10), 9);
-        Assertions.assertEqual(o.closestCost2(new int[]{1, 7}, new int[]{3, 4}, 10), 10);
-        Assertions.assertEqual(o.closestCost2(new int[]{2, 3}, new int[]{4, 5, 100}, 18), 17);
-        Assertions.assertEqual(o.closestCost2(new int[]{10}, new int[]{1}, 1), 10);
+        MyAssertions.assertEqual(o.closestCost2(new int[]{3, 10}, new int[]{2, 5}, 9), 8);
+        MyAssertions.assertEqual(o.closestCost2(new int[]{3, 10}, new int[]{2, 5}, 9), 8);
+        MyAssertions.assertEqual(o.closestCost2(new int[]{2, 3}, new int[]{3}, 10), 9);
+        MyAssertions.assertEqual(o.closestCost2(new int[]{1, 7}, new int[]{3, 4}, 10), 10);
+        MyAssertions.assertEqual(o.closestCost2(new int[]{2, 3}, new int[]{4, 5, 100}, 18), 17);
+        MyAssertions.assertEqual(o.closestCost2(new int[]{10}, new int[]{1}, 1), 10);
     }
 
     /**

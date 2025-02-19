@@ -1,6 +1,6 @@
 package im.engure.string;
 
-import im.engure.util.Assertions;
+import im.engure.util.MyAssertions;
 
 import java.util.Arrays;
 
@@ -11,11 +11,11 @@ public class BeautySum1781 {
 
     public static void main(String[] args) {
         BeautySum1781 o = new BeautySum1781();
-        Assertions.assertEqual(o.beautySum("a"), 0);
-        Assertions.assertEqual(o.beautySum("ab"), 0);
-        Assertions.assertEqual(o.beautySum("aab"), 1);
-        Assertions.assertEqual(o.beautySum("aabcb"), 5);
-        Assertions.assertEqual(o.beautySum("aabcbaa"), 17);
+        MyAssertions.assertEqual(o.beautySum("a"), 0);
+        MyAssertions.assertEqual(o.beautySum("ab"), 0);
+        MyAssertions.assertEqual(o.beautySum("aab"), 1);
+        MyAssertions.assertEqual(o.beautySum("aabcb"), 5);
+        MyAssertions.assertEqual(o.beautySum("aabcbaa"), 17);
     }
 
     /**

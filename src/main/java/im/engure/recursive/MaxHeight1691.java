@@ -1,6 +1,6 @@
 package im.engure.recursive;
 
-import im.engure.util.Assertions;
+import im.engure.util.MyAssertions;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -12,9 +12,9 @@ public class MaxHeight1691 {
 
     public static void main(String[] args) {
         MaxHeight1691 o = new MaxHeight1691();
-        Assertions.assertEqual(o.maxHeight(new int[][]{{50, 45, 20}, {95, 37, 53}, {45, 23, 12}}), 190);
-        Assertions.assertEqual(o.maxHeight(new int[][]{{38, 25, 45}, {76, 35, 3}}), 76);
-        Assertions.assertEqual(o.maxHeight(new int[][]{{7, 11, 17}, {7, 17, 11}, {11, 7, 17}, {11, 17, 7}, {17, 7, 11}, {17, 11, 7}}), 102);
+        MyAssertions.assertEqual(o.maxHeight(new int[][]{{50, 45, 20}, {95, 37, 53}, {45, 23, 12}}), 190);
+        MyAssertions.assertEqual(o.maxHeight(new int[][]{{38, 25, 45}, {76, 35, 3}}), 76);
+        MyAssertions.assertEqual(o.maxHeight(new int[][]{{7, 11, 17}, {7, 17, 11}, {11, 7, 17}, {11, 17, 7}, {17, 7, 11}, {17, 11, 7}}), 102);
     }
 
     /**

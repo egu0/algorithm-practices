@@ -1,13 +1,13 @@
 package im.engure.greedy;
 
-import im.engure.util.Assertions;
+import im.engure.util.MyAssertions;
 
 public class MinElements1785 {
 
     public static void main(String[] args) {
         MinElements1785 o = new MinElements1785();
-        Assertions.assertEqual(o.minElements(new int[]{1, -1, 1}, 3, -4), 2);
-        Assertions.assertEqual(o.minElements(new int[]{1, -10, 9, 1}, 100, 0), 1);
+        MyAssertions.assertEqual(o.minElements(new int[]{1, -1, 1}, 3, -4), 2);
+        MyAssertions.assertEqual(o.minElements(new int[]{1, -10, 9, 1}, 100, 0), 1);
     }
 
     /**

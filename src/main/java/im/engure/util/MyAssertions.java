@@ -3,7 +3,7 @@ package im.engure.util;
 
 import java.util.List;
 
-public class Assertions {
+public class MyAssertions {
 
     public static void assertEqual(List<Object> o1, List<Object> o2) {
         if (o1 == o2) {

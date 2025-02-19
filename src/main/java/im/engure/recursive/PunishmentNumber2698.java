@@ -39,7 +39,7 @@ public class PunishmentNumber2698 {
             return false;
         }
 
-        System.out.println("isAnswer: num=" + num + ", target=" + target);
+//        System.out.println("isAnswer: num=" + num + ", target=" + target);
         if (num == target) {
             return true;
         }

@@ -1,6 +1,6 @@
 package im.engure.string;
 
-import im.engure.util.Assertions;
+import im.engure.util.MyAssertions;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,13 +9,13 @@ public class NumDifferentIntegers1805 {
 
     public static void main(String[] args) {
         NumDifferentIntegers1805 o = new NumDifferentIntegers1805();
-        Assertions.assertEqual(o.numDifferentIntegers("a1b01c001"), 1);
-        Assertions.assertEqual(o.numDifferentIntegers("1"), 1);
-        Assertions.assertEqual(o.numDifferentIntegers("a"), 0);
-        Assertions.assertEqual(o.numDifferentIntegers("1a2"), 2);
-        Assertions.assertEqual(o.numDifferentIntegers("a0b00"), 1);
-        Assertions.assertEqual(o.numDifferentIntegers("0a00"), 1);
-        Assertions.assertEqual(o.numDifferentIntegers("0a001b000"), 2);
+        MyAssertions.assertEqual(o.numDifferentIntegers("a1b01c001"), 1);
+        MyAssertions.assertEqual(o.numDifferentIntegers("1"), 1);
+        MyAssertions.assertEqual(o.numDifferentIntegers("a"), 0);
+        MyAssertions.assertEqual(o.numDifferentIntegers("1a2"), 2);
+        MyAssertions.assertEqual(o.numDifferentIntegers("a0b00"), 1);
+        MyAssertions.assertEqual(o.numDifferentIntegers("0a00"), 1);
+        MyAssertions.assertEqual(o.numDifferentIntegers("0a001b000"), 2);
     }
 
     /**

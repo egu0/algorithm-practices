@@ -2,6 +2,11 @@ package im.engure.binarytree.util;
 
 import im.engure.binarytree.TreeNode;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class BinaryTreeUtil {
 
     // ANSI escape codes
@@ -54,6 +59,9 @@ public class BinaryTreeUtil {
         return nodes[0];
     }
 
+    /**
+     * @create-by o3-mini
+     */
     private static void updateMaxIndex(TreeNode node, int index) {
         if (node == null) {
             return;
@@ -64,6 +72,9 @@ public class BinaryTreeUtil {
         updateMaxIndex(node.right, 2 * index + 2);
     }
 
+    /**
+     * @create-by o3-mini
+     */
     private static void fillArray(TreeNode node, int index, Integer[] arr) {
         if (node == null) {
             return;
@@ -75,6 +86,47 @@ public class BinaryTreeUtil {
 
     /**
      * 将二叉树展平
+     *
+     * @return 不保留完整的结构信息。比如 <a href="https://leetcode.com/problems/add-one-row-to-tree/description/">...</a> 第一个示例中的 Output
+     * @create-by o3-mini
+     */
+    public static Integer[] flatBinaryTreeV1(TreeNode root) {
+        if (root == null) {
+            return new Integer[0];
+        }
+
+        // 使用队列做层序遍历；放入 null 节点以保留结构信息
+        Queue<TreeNode> queue = new LinkedList<>();
+        List<Integer> list = new ArrayList<>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            TreeNode current = queue.poll();
+            if (current != null) {
+                list.add(current.val);
+                // 不论子节点是否为 null，都放入队列
+                queue.offer(current.left);
+                queue.offer(current.right);
+            } else {
+                list.add(null);
+            }
+        }
+
+        // 移除数组末尾的多余 null 节点
+        int i = list.size() - 1;
+        while (i >= 0 && list.get(i) == null) {
+            i--;
+        }
+        List<Integer> trimmed = list.subList(0, i + 1);
+
+        return trimmed.toArray(new Integer[0]);
+    }
+
+    /**
+     * 将二叉树展平
+     *
+     * @return 保留完整的结构信息，即使某些位置没有节点也会显示为 null
+     * @create-by o3-mini
      */
     public static Integer[] flatBinaryTree(TreeNode root) {
         if (root == null) {

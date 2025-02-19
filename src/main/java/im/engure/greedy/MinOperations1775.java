@@ -1,6 +1,6 @@
 package im.engure.greedy;
 
-import im.engure.util.Assertions;
+import im.engure.util.MyAssertions;
 
 /**
  * @author Administrator
@@ -9,10 +9,10 @@ public class MinOperations1775 {
 
     public static void main(String[] args) {
         MinOperations1775 o = new MinOperations1775();
-        Assertions.assertEqual(o.minOperations(new int[]{1, 2, 3, 4, 5, 6}, new int[]{1, 1, 2, 2, 2, 2}), 3);
-        Assertions.assertEqual(o.minOperations(new int[]{1, 1, 1, 1, 1, 1, 1}, new int[]{6}), -1);
-        Assertions.assertEqual(o.minOperations(new int[]{6, 6}, new int[]{1}), 3);
-        Assertions.assertEqual(o.minOperations(new int[]{5, 6, 4, 3, 1, 2}, new int[]{6, 3, 3, 1, 4, 5, 3, 4, 1, 3, 4}), 4);
+        MyAssertions.assertEqual(o.minOperations(new int[]{1, 2, 3, 4, 5, 6}, new int[]{1, 1, 2, 2, 2, 2}), 3);
+        MyAssertions.assertEqual(o.minOperations(new int[]{1, 1, 1, 1, 1, 1, 1}, new int[]{6}), -1);
+        MyAssertions.assertEqual(o.minOperations(new int[]{6, 6}, new int[]{1}), 3);
+        MyAssertions.assertEqual(o.minOperations(new int[]{5, 6, 4, 3, 1, 2}, new int[]{6, 3, 3, 1, 4, 5, 3, 4, 1, 3, 4}), 4);
     }
 
     /**
