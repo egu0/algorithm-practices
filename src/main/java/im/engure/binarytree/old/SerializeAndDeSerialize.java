@@ -38,7 +38,7 @@ public class SerializeAndDeSerialize {
 
     // 递归序列化
     private static Queue<TreeNode> preSerial(TreeNode h) {
-        Queue<TreeNode> ans = new LinkedList<TreeNode>();
+        Queue<TreeNode> ans = new LinkedList<>();
         pre(h, ans);
         return ans;
     }
@@ -54,8 +54,8 @@ public class SerializeAndDeSerialize {
     // 非递归实现序列化
     private static void preSerial2(TreeNode h) {
         if (h != null) {
-            Stack<TreeNode> stack = new Stack<TreeNode>();
-            Queue<TreeNode> queue = new LinkedList<TreeNode>();
+            Stack<TreeNode> stack = new Stack<>();
+            Queue<TreeNode> queue = new LinkedList<>();
             while (!stack.empty() || h != null) {
                 if (h != null) {
                     stack.push(h);
@@ -84,7 +84,7 @@ public class SerializeAndDeSerialize {
 
     // 后序 递归 序列化 和 反序列化
     private static Queue<TreeNode> postSerial(TreeNode h) {
-        Queue<TreeNode> ans = new LinkedList<TreeNode>();
+        Queue<TreeNode> ans = new LinkedList<>();
         post(h, ans);
         return ans;
     }
@@ -99,10 +99,10 @@ public class SerializeAndDeSerialize {
         }
     }
 
-    private static TreeNode postDeSerial(Queue<TreeNode> queue) {
+//    private static TreeNode postDeSerial(Queue<TreeNode>TreeNode queue) {
 //		后续的反序列化？ 队头为null，不能反序列化。
-        return null;
-    }
+//        return null;
+//    }
 
     // ========================
 
@@ -112,7 +112,7 @@ public class SerializeAndDeSerialize {
         Queue<TreeNode> ans = null;
         if (h != null) {
             Queue<TreeNode> queue = new LinkedList<TreeNode>();
-            ans = new LinkedList<TreeNode>();
+            ans = new LinkedList<>();
 
             queue.add(h);
             ans.add(h);
@@ -144,7 +144,7 @@ public class SerializeAndDeSerialize {
             return null;
         }
         TreeNode h = generateNode(queue.poll());
-        Queue<TreeNode> q2 = new LinkedList<TreeNode>();
+        Queue<TreeNode> q2 = new LinkedList<>();
         q2.add(h);
         while (!q2.isEmpty()) {
             TreeNode n = q2.poll();

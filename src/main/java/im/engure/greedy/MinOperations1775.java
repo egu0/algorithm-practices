@@ -17,10 +17,6 @@ public class MinOperations1775 {
 
     /**
      * 贪心算法。4ms
-     *
-     * @param nums1
-     * @param nums2
-     * @return
      */
     public int minOperations(int[] nums1, int[] nums2) {
         int sum1 = 0, sum2 = 0;

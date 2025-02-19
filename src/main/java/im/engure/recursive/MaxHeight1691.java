@@ -4,6 +4,7 @@ import im.engure.util.MyAssertions;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.OptionalInt;
 
 /**
  * @author Engure
@@ -21,7 +22,6 @@ public class MaxHeight1691 {
      * 暴力法 O(N^2)
      *
      * @param cuboids 长方体尺寸信息
-     * @return
      */
     public int maxHeight(int[][] cuboids) {
         // 方块内长宽高小到大旋转，方块间按长宽高和小到大排列
@@ -50,6 +50,11 @@ public class MaxHeight1691 {
             }
         }
 
-        return Arrays.stream(dp).max().getAsInt();
+        OptionalInt op = Arrays.stream(dp).max();
+        if (op.isPresent()) {
+            return op.getAsInt();
+        } else {
+            throw new RuntimeException();
+        }
     }
 }

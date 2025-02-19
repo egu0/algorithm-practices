@@ -20,9 +20,6 @@ public class NumDifferentIntegers1805 {
 
     /**
      * 1ms
-     *
-     * @param word
-     * @return
      */
     public int numDifferentIntegers(String word) {
         boolean isNum = false;
@@ -59,9 +56,6 @@ public class NumDifferentIntegers1805 {
 
     /**
      * 2ms，set 去重
-     *
-     * @param word
-     * @return
      */
     public int numDifferentIntegers1(String word) {
         boolean isNum = false;
@@ -89,7 +83,7 @@ public class NumDifferentIntegers1805 {
     private int process(Set<String> set) {
         Set<String> newSet = new HashSet<>();
         for (String str : set) {
-            if (str.length() > 0) {
+            if (!str.isEmpty()) {
                 if (str.charAt(0) != '0') {
                     newSet.add(str);
                 } else {

@@ -12,11 +12,6 @@ public class MinElements1785 {
 
     /**
      * 1ms
-     *
-     * @param nums
-     * @param limit
-     * @param goal
-     * @return
      */
     public int minElements(int[] nums, int limit, int goal) {
         long sum = 0;
@@ -29,11 +24,6 @@ public class MinElements1785 {
 
     /**
      * 2ms
-     *
-     * @param nums
-     * @param limit
-     * @param goal
-     * @return
      */
     public int minElements1(int[] nums, int limit, int goal) {
         // abs(goal) <= 10^9, limit >= 1

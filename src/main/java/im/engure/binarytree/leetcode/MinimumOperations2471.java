@@ -18,9 +18,11 @@ public class MinimumOperations2471 {
             int i = 0;
             while (n-- > 0) {
                 TreeNode node = q.poll();
-                nums[i++] = node.val;
-                if (node.left != null) q.add(node.left);
-                if (node.right != null) q.add(node.right);
+                if (node != null) {
+                    nums[i++] = node.val;
+                    if (node.left != null) q.add(node.left);
+                    if (node.right != null) q.add(node.right);
+                }
             }
             ans += process(nums);
         }
@@ -66,7 +68,7 @@ public class MinimumOperations2471 {
     public int process(int[] arr) {
         if (arr.length <= 1) return 0;
         int ans = 0;
-        PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2) -> o1[0] - o2[0]);
+        PriorityQueue<int[]> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o[0]));
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == 0) break;
 

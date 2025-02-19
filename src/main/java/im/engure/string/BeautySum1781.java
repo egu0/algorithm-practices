@@ -21,9 +21,6 @@ public class BeautySum1781 {
     /**
      * “剪枝”，O(N^2)，24ms
      * ref: <a href="https://leetcode.cn/problems/sum-of-beauty-of-all-substrings/solution/by-feng-li-luo-hua-jg3b/">...</a>
-     *
-     * @param s
-     * @return
      */
     public int beautySum(String s) {
         int len = s.length();
@@ -67,9 +64,6 @@ public class BeautySum1781 {
 
     /**
      * 前缀和，O(N^2)，60ms
-     *
-     * @param s
-     * @return
      */
     public int beautySum2(String s) {
         int length = s.length();
@@ -106,9 +100,6 @@ public class BeautySum1781 {
 
     /**
      * O(N^2)、70ms
-     *
-     * @param s
-     * @return
      */
     public int beautySum1(String s) {
         int len = s.length();
