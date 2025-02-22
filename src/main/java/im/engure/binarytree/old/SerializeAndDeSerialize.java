@@ -111,7 +111,7 @@ public class SerializeAndDeSerialize {
     private static Queue<TreeNode> levelSerial(TreeNode h) {
         Queue<TreeNode> ans = null;
         if (h != null) {
-            Queue<TreeNode> queue = new LinkedList<TreeNode>();
+            Queue<TreeNode> queue = new LinkedList<>();
             ans = new LinkedList<>();
 
             queue.add(h);

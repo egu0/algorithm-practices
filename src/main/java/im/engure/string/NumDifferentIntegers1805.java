@@ -23,7 +23,7 @@ public class NumDifferentIntegers1805 {
      */
     public int numDifferentIntegers(String word) {
         boolean isNum = false;
-        int start = 0, end = 0;
+        int start = 0, end;
         Set<String> set = new HashSet<>();
         for (int i = 0; i < word.length(); i++) {
             char ch = word.charAt(i);
@@ -59,7 +59,7 @@ public class NumDifferentIntegers1805 {
      */
     public int numDifferentIntegers1(String word) {
         boolean isNum = false;
-        int start = 0, end = 0;
+        int start = 0, end;
         Set<String> set = new HashSet<>();
         for (int i = 0; i < word.length(); i++) {
             char ch = word.charAt(i);
